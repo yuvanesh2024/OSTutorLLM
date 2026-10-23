@@ -1,0 +1,6 @@
+# Demonstration notes: CPU scheduling
+These are small original starter notes for a smoke test, not institutional teaching material.
+CPU scheduling chooses a ready process to run on the CPU. First Come First Served (FCFS) executes processes in arrival order and is non-preemptive. A running process continues until its CPU burst finishes. A long process may delay many short processes; this is the convoy effect.
+Shortest Job First (SJF), in its non-preemptive form, chooses the shortest CPU burst among processes that have already arrived and are ready. It does not choose a future process before its arrival. A running process is not preempted. Shortest Remaining Time First is the preemptive variant, not the SJF implementation in this demonstration.
+Round Robin assigns each ready process a fixed time quantum. If a process does not finish within its quantum, it returns to the end of the ready queue. A very large quantum approaches FCFS. Small quanta can increase context-switch overhead in a real OS. Our calculator assumes zero context-switch overhead and a single CPU without I/O blocking.
+Completion time is when a process finishes. Turnaround time equals completion time minus arrival time. Waiting time equals turnaround time minus CPU burst time for this single-burst model. The average is the sum across all processes divided by the number of processes.
